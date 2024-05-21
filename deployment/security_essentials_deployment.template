@@ -272,11 +272,10 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       Handler: index.handler
-      Runtime: python3.9
+      Runtime: python3.12
       Description: Security Essentials Assessment Lambda
       MemorySize: 128
       Timeout: 900
-      ReservedConcurrentExecutions: 2
       Role: !GetAtt LambdaAssessorRole.Arn
       FunctionName: !Join [ "-", ["BaselineSecurityAssessor", !Select [2, !Split [ "/", !Ref 'AWS::StackId']]]]
       Code: 
